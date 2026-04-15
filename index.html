@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>La Cura — coordinamento interno</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F7F3EB;
+    --ink: #1A1A1A;
+    --muted: #6B6357;
+    --line: #D8CFC0;
+    --accent: #7A1F1F;
+    --soft: #EDE6D6;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'EB Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  header.site {
+    border-bottom: 1px solid var(--line);
+    padding: 28px 0 20px;
+    margin-bottom: 40px;
+    background: var(--soft);
+  }
+  header.site .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .brand {
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+    font-size: 26px;
+    letter-spacing: 0.02em;
+  }
+  .brand small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  nav a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 2px;
+  }
+  nav a:hover { border-bottom-color: var(--accent); }
+  h1 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1.15;
+    margin: 0 0 10px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 500;
+    font-size: 28px;
+    margin: 48px 0 18px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 32px 0 10px;
+  }
+  p { margin: 0 0 16px; }
+  .lead {
+    font-size: 21px;
+    color: var(--muted);
+    margin-bottom: 32px;
+  }
+  .status {
+    background: var(--soft);
+    border-left: 3px solid var(--accent);
+    padding: 18px 22px;
+    margin: 24px 0;
+    font-size: 17px;
+  }
+  .status strong { font-weight: 600; }
+  .countdown {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 16px;
+    margin: 18px 0;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  th {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    background: var(--soft);
+  }
+  .tag {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: var(--soft);
+    color: var(--muted);
+  }
+  .tag.todo { background: #F2E5CE; color: #8A5A1A; }
+  .tag.doing { background: #E5EAF2; color: #2A4A7A; }
+  .tag.done { background: #DBE8D8; color: #3A6A3A; }
+  .tag.hot { background: #F2D8D8; color: var(--accent); }
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0;
+    border-left: 2px solid var(--line);
+  }
+  .timeline li {
+    position: relative;
+    padding: 12px 0 12px 28px;
+    margin-left: 0;
+  }
+  .timeline li::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 22px;
+    width: 12px;
+    height: 12px;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+  }
+  .timeline .date {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .decision {
+    border: 1px solid var(--line);
+    padding: 20px 22px;
+    margin: 16px 0;
+    background: #FCFAF4;
+  }
+  .decision h4 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 600;
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  .decision .meta {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  footer.site {
+    margin-top: 80px;
+    padding: 28px 0;
+    border-top: 1px solid var(--line);
+    background: var(--soft);
+    color: var(--muted);
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+  footer.site .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  a.inline {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  @media (max-width: 640px) {
+    h1 { font-size: 34px; }
+    .two-col { grid-template-columns: 1fr; }
+    body { font-size: 17px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <div class="brand">
+      La Cura
+      <small>Coordinamento interno · accesso riservato</small>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#stato">Stato</a></li>
+        <li><a href="#manifesto">Manifesto</a></li>
+        <li><a href="#metodo">Metodo</a></li>
+        <li><a href="#agenda">Agenda</a></li>
+        <li><a href="#decisioni">Decisioni</a></li>
+        <li><a href="#matrice">Matrice</a></li>
+        <li><a href="#documenti">Documenti</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+  <section id="stato">
+    <div class="countdown">15 giorni al primo maggio · Taranto</div>
+    <h1>La Cura</h1>
+    <p class="lead">Un processo ricostituente che nasce il primo maggio 2026 a Taranto, dentro Uno Maggio Libero e Pensante, attorno al principio che nessuna vita è sacrificabile.</p>
+
+    <div class="status">
+      <strong>Stato del progetto, 15 aprile 2026.</strong> Il manifesto è alla seconda bozza. Il documento di metodo è alla prima bozza. La scelta della prima battaglia operativa è aperta. Il presidium provvisorio non è ancora composto. La matrice dei contatti è inizializzata e attende il primo giro di telefonate. La piattaforma pubblica non è ancora stata aperta.
+    </div>
+
+    <h3>I tre fronti di lavoro delle prossime due settimane</h3>
+    <p>Il primo fronte è la chiusura del manifesto, che richiede un giro di lettura con Francesca Albanese e con due o tre altre voci che entreranno tra i fondatori. Il secondo fronte è la costituzione del presidium provvisorio di nove persone, che devono essere contattate e avere accettato prima del 29 aprile. Il terzo fronte è il contatto delle organizzazioni di áncora, con l'obiettivo minimo di dieci adesioni entro la stessa data. Su tutti e tre i fronti, il sito serve come luogo unico di aggiornamento: ogni contatto fatto, ogni risposta ricevuta, ogni adesione acquisita viene riportata qui.</p>
+  </section>
+
+  <section id="manifesto">
+    <h2>Manifesto</h2>
+    <p>Il manifesto è il testo costitutivo. È in lavorazione, con una seconda bozza consolidata il 15 aprile 2026 che incorpora il radicamento a Taranto e il richiamo ad Arrigoni, il lessico giuridico internazionale (Convenzione sul genocidio del 1948, ordinanze CIG del 2024, parere consultivo del 19 luglio 2024), il paragrafo sulla cura come lavoro femminile storicamente non pagato, la genealogia che passa da don Tonino Bello e Alex Langer, e una chiusa più schierata sul piano politico.</p>
+    <p><a class="inline" href="manifesto.html">Leggi il manifesto, versione 2</a></p>
+    <h3>Lavori in corso</h3>
+    <p>La versione palco, più breve e ritmica, pensata per essere letta da Francesca il primo maggio, è ancora da produrre. Il comunicato congiunto con le organizzazioni di áncora, destinato al 2 maggio, è da preparare una volta consolidate le adesioni.</p>
+  </section>
+
+  <section id="metodo">
+    <h2>Metodo</h2>
+    <p>Il documento di metodo definisce la forma della Cura: associazione di promozione sociale da costituirsi entro sei mesi, presidium di nove membri a rotazione biennale con incompatibilità chiare, nodi territoriali vincolati a uno dei sei assi costituzionali (lavoro, salute, istruzione, ambiente, giustizia, diritti civili), piattaforma pubblica, rapporto annuale sullo stato della Costituzione, pagella delle forze politiche in vista delle elezioni. La prima battaglia operativa è in attesa di scelta tra due opzioni: la proposta di legge di iniziativa popolare sulla riforma della 185/90 sull'export di armi, o la denuncia formale sulla responsabilità dello Stato italiano ai sensi del diritto internazionale umanitario.</p>
+    <p><a class="inline" href="metodo.html">Leggi il documento di metodo, versione 1</a></p>
+  </section>
+
+  <section id="agenda">
+    <h2>Agenda dei primi cento giorni</h2>
+    <ul class="timeline">
+      <li>
+        <div class="date">22 aprile 2026</div>
+        <p>Tre decisioni con Francesca Albanese: prima battaglia operativa, presidium provvisorio, perimetro chiuso delle organizzazioni di áncora.</p>
+      </li>
+      <li>
+        <div class="date">29 aprile 2026</div>
+        <p>Obiettivo: dieci organizzazioni aderenti, quindici firmatari individuali, manifesto consolidato in versione definitiva, comunicato congiunto pronto per il 2 maggio.</p>
+      </li>
+      <li>
+        <div class="date">1 maggio 2026 · Taranto</div>
+        <p>Lettura pubblica del manifesto dentro Uno Maggio Libero e Pensante. Annuncio della prima battaglia operativa. Apertura delle adesioni.</p>
+      </li>
+      <li>
+        <div class="date">2 maggio 2026</div>
+        <p>Pubblicazione del manifesto su almeno tre testate (Il Manifesto, Avvenire, più una generalista). Comunicato congiunto con le organizzazioni di áncora.</p>
+      </li>
+      <li>
+        <div class="date">15 maggio 2026</div>
+        <p>Conferenza stampa nazionale a Roma con Francesca Albanese e tre membri del presidium provvisorio.</p>
+      </li>
+      <li>
+        <div class="date">31 maggio 2026</div>
+        <p>Apertura della piattaforma pubblica con il modulo di adesione al manifesto, il protocollo per costituire un nodo, i primi materiali di documentazione.</p>
+      </li>
+      <li>
+        <div class="date">15 giugno 2026</div>
+        <p>Avvio operativo della prima battaglia.</p>
+      </li>
+      <li>
+        <div class="date">Fine giugno 2026</div>
+        <p>Primo evento pubblico post-Taranto in un'altra città del Mezzogiorno.</p>
+      </li>
+      <li>
+        <div class="date">10 agosto 2026</div>
+        <p>Fine dei primi cento giorni. Obiettivo: 15-25 nodi territoriali, 3000 adesioni individuali, prima battaglia pienamente operativa.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="decisioni">
+    <h2>Decisioni aperte</h2>
+
+    <div class="decision">
+      <h4>1. Prima battaglia operativa</h4>
+      <div class="meta">Scadenza: 22 aprile · Decisori: Francesca Albanese, presidium provvisorio</div>
+      <p>Opzione A, proposta di legge di iniziativa popolare sulla riforma della legge 185/90 sull'export di armi, come campagna di massa da giugno a novembre 2026 con raccolta di 50.000 firme. Opzione B, denuncia formale di un collegio di giuristi sulla responsabilità dello Stato ai sensi dell'articolo 1 comune delle Convenzioni di Ginevra, della Convenzione del 1948, dell'articolo 16 del progetto sulla responsabilità degli Stati. Proposta di bozza: opzione A come campagna pubblica, opzione B come dossier da depositare in un secondo tempo.</p>
+      <span class="tag hot">Urgente</span>
+    </div>
+
+    <div class="decision">
+      <h4>2. Composizione del presidium provvisorio</h4>
+      <div class="meta">Scadenza: 29 aprile · Decisori: Andrea, Maura, Francesca + primi contatti</div>
+      <p>Nove persone, almeno cinque donne, almeno due dal Mezzogiorno, almeno due espressione di organizzazioni di áncora aderenti. Incompatibilità con cariche parlamentari e direzioni di partito.</p>
+      <span class="tag hot">Urgente</span>
+    </div>
+
+    <div class="decision">
+      <h4>3. Perimetro chiuso delle organizzazioni di áncora</h4>
+      <div class="meta">Scadenza: 22 aprile · Decisori: Andrea, Maura, Francesca</div>
+      <p>Tra le quindici organizzazioni candidate (ARCI, Libera, ANPI, Emergency, Pax Christi, Rete Italiana Pace e Disarmo, Sbilanciamoci!, Forum Disuguaglianze e Diversità, Fondazione Langer, Gruppo Abele, Cittadinanzattiva, Casa della Carità, Medu, Coscioni, ASGI), individuare le prime dieci da contattare in via prioritaria e distribuire le telefonate.</p>
+      <span class="tag hot">Urgente</span>
+    </div>
+
+    <div class="decision">
+      <h4>4. Sede legale della costituenda associazione</h4>
+      <div class="meta">Scadenza: 15 maggio · Decisori: presidium</div>
+      <p>Taranto per forza simbolica, Roma per operatività, altra città per equilibrio. Da sciogliere dopo il lancio.</p>
+      <span class="tag todo">Rinviata</span>
+    </div>
+
+    <div class="decision">
+      <h4>5. Dominio e identità digitale</h4>
+      <div class="meta">Scadenza: 20 aprile · Decisori: Andrea</div>
+      <p>Candidati: lacura.it, lacura.eu, dovereDicura.it. Da verificare disponibilità e registrare il preferito.</p>
+      <span class="tag doing">In corso</span>
+    </div>
+
+  </section>
+
+  <section id="matrice">
+    <h2>Matrice dei contatti</h2>
+
+    <h3>Organizzazioni di áncora</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Organizzazione</th>
+          <th>Interlocutore</th>
+          <th>Chi chiama</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>ARCI nazionale</td><td>Presidenza nazionale</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Libera</td><td>don Luigi Ciotti</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>ANPI</td><td>Presidenza nazionale</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Emergency</td><td>Rossella Miccio</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Pax Christi</td><td>don Renato Sacco</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Rete Italiana Pace e Disarmo</td><td>Francesco Vignarca</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Sbilanciamoci!</td><td>Giulio Marcon</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Forum Disuguaglianze e Diversità</td><td>Fabrizio Barca</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Fondazione Alexander Langer</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Gruppo Abele</td><td>Coordinamento</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Cittadinanzattiva</td><td>Segretariato</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Casa della Carità</td><td>Don Virginio Colmegna</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Medici per i Diritti Umani</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Associazione Luca Coscioni</td><td>Segretariato</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>ASGI</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Primi firmatari individuali</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ambito</th>
+          <th>Chi chiama</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Luigi Ferrajoli</td><td>Diritto costituzionale, "Per una Costituzione della Terra"</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Gustavo Zagrebelsky</td><td>Diritto costituzionale, Libertà e Giustizia</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Salvatore Settis</td><td>Storia dell'arte, patrimonio, costituzione</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Marco Revelli</td><td>Storia, lavoro, pensiero politico</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Alex Zanotelli</td><td>Pacifismo, giustizia sociale, comboniani</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Nadia Urbinati</td><td>Teoria politica, democrazia</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Chiara Valerio</td><td>Scrittura, editoria, presenza pubblica</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Donatella Di Cesare</td><td>Filosofia politica</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Gherardo Colombo</td><td>Magistratura, costituzione, scuola</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Mimmo Lucano</td><td>Accoglienza, Riace</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Christian Raimo</td><td>Scuola, scrittura, municipio</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Loredana Lipperini</td><td>Scrittura, radio, cultura</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Igiaba Scego</td><td>Scrittura, diritti, razzismo</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+        <tr><td>Carlo Rovelli</td><td>Scienza, pacifismo</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
+      </tbody>
+    </table>
+    <p><em>Intestazione "Chi chiama" da compilare manualmente dopo la riunione con Francesca del 22 aprile.</em></p>
+  </section>
+
+  <section id="documenti">
+    <h2>Documenti</h2>
+    <div class="two-col">
+      <div>
+        <h3>Testi costitutivi</h3>
+        <p><a class="inline" href="manifesto.html">Manifesto, versione 2</a></p>
+        <p><a class="inline" href="metodo.html">Metodo, versione 1</a></p>
+      </div>
+      <div>
+        <h3>Da produrre</h3>
+        <p>Versione palco del manifesto</p>
+        <p>Comunicato congiunto del 2 maggio</p>
+        <p>Testo breve per i firmatari individuali</p>
+        <p>Testo breve per le organizzazioni di áncora</p>
+        <p>Statuto provvisorio dell'associazione</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="container">
+    <div>La Cura · coordinamento interno · bozza di lavoro</div>
+    <div>Aggiornato al 15 aprile 2026</div>
+  </div>
+</footer>
+
+</body>
+</html>
