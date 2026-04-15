@@ -860,3 +860,355 @@ footer.site .sigillo {
   .hero { padding: 0 0 20px; }
   .reading { padding: 0; max-width: 100%; }
 }
+
+/* =========================================================
+   LANDING PAGE — pagina di apertura
+   Registro editoriale, libraio, respiro ampio.
+   ========================================================= */
+
+.cover {
+  min-height: calc(100vh - 160px);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 80px 0 60px;
+  position: relative;
+}
+.cover-dedica {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+  max-width: 560px;
+  margin: 0;
+}
+.cover-core {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 0;
+}
+.cover-overline {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 38px;
+}
+.cover h1 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: 104px;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0 0 36px;
+  color: var(--ink);
+}
+.cover h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--accent);
+}
+.cover-sub {
+  font-family: 'EB Garamond', serif;
+  font-size: 26px;
+  line-height: 1.4;
+  color: var(--ink);
+  max-width: 620px;
+  margin: 0 0 50px;
+  font-weight: 400;
+}
+.cover-line {
+  width: 96px;
+  height: 1px;
+  background: var(--accent);
+  border: 0;
+  margin: 0 0 28px;
+}
+.cover-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+}
+.cover-foot .luogo { font-weight: 600; color: var(--ink); }
+
+/* Opening essay — capitolo di apertura */
+.opening {
+  max-width: 680px;
+  margin: 90px auto 0;
+  padding: 0 20px;
+}
+.opening .section-marker {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.opening h2 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 60px;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.opening p {
+  font-family: 'EB Garamond', serif;
+  font-size: 21px;
+  line-height: 1.72;
+  color: var(--ink);
+  margin: 0 0 28px;
+  text-align: justify;
+  hyphens: auto;
+}
+.opening p:first-of-type::first-letter {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  float: left;
+  font-size: 78px;
+  line-height: 0.85;
+  padding: 6px 14px 0 0;
+  color: var(--accent);
+  font-feature-settings: "lnum";
+}
+
+/* Pull quote — citazione a stacco */
+.pullquote {
+  max-width: 720px;
+  margin: 72px auto;
+  padding: 40px 20px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+.pullquote blockquote {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1.4;
+  color: var(--ink);
+  margin: 0 0 18px;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+.pullquote cite {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* Indice tipografico — table of contents, stile sommario di libro */
+.indice-tipografico {
+  max-width: 760px;
+  margin: 90px auto 60px;
+  padding: 0 20px;
+}
+.indice-tipografico .indice-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.indice-tipografico .indice-head .overline {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+.indice-tipografico .indice-head h2 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.15;
+  margin: 0;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.indice-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+.indice-voce {
+  display: grid;
+  grid-template-columns: 40px 1fr auto;
+  align-items: baseline;
+  gap: 18px;
+  padding: 22px 4px;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background-color 0.25s ease, padding 0.25s ease;
+}
+.indice-voce:hover {
+  background: var(--bg-soft);
+  padding-left: 14px;
+  padding-right: 14px;
+}
+.indice-voce .num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.indice-voce .cuore {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.indice-voce .titolo {
+  font-family: 'EB Garamond', serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.indice-voce .didascalia {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.indice-voce .pag {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  font-weight: 500;
+  white-space: nowrap;
+  padding-left: 20px;
+}
+.indice-voce:hover .pag { color: var(--accent); }
+
+/* Lettera firmata — nota personale ai lettori */
+.lettera {
+  max-width: 680px;
+  margin: 100px auto 80px;
+  padding: 50px 20px 60px;
+  border-top: 1px solid var(--line);
+}
+.lettera .lettera-marker {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 34px;
+}
+.lettera p {
+  font-family: 'EB Garamond', serif;
+  font-size: 19px;
+  line-height: 1.72;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.lettera .chiusa {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--muted);
+  margin-top: 32px;
+  margin-bottom: 4px;
+}
+.lettera .firma {
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: 0.01em;
+  margin: 0 0 2px;
+}
+.lettera .firma-sub {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+}
+.lettera .data-luogo {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  margin-top: 30px;
+}
+
+/* Passaggio operativo — invito discreto al cruscotto */
+.passaggio-operativo {
+  max-width: 680px;
+  margin: 0 auto 90px;
+  padding: 36px 20px;
+  text-align: center;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.passaggio-operativo p {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 17px;
+  color: var(--muted);
+  margin: 0 0 14px;
+  line-height: 1.55;
+}
+.passaggio-operativo a {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.26em;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.passaggio-operativo a:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Responsive landing */
+@media (max-width: 768px) {
+  .cover { padding: 50px 0 40px; min-height: auto; }
+  .cover h1 { font-size: 64px; }
+  .cover-sub { font-size: 21px; }
+  .cover-foot { flex-direction: column; align-items: flex-start; gap: 10px; }
+  .opening { margin-top: 60px; }
+  .opening h2 { font-size: 30px; margin-bottom: 40px; }
+  .opening p { font-size: 19px; line-height: 1.65; }
+  .opening p:first-of-type::first-letter { font-size: 62px; }
+  .pullquote blockquote { font-size: 22px; }
+  .indice-voce { grid-template-columns: 32px 1fr; gap: 12px; padding: 18px 4px; }
+  .indice-voce .pag { grid-column: 2; padding-left: 0; padding-top: 4px; }
+  .indice-voce .titolo { font-size: 20px; }
+  .lettera { margin-top: 70px; padding: 40px 20px; }
+  .lettera p { font-size: 18px; }
+}
