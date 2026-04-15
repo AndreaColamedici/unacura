@@ -1409,3 +1409,227 @@ footer.site .sigillo {
   .soglia p { font-size: 19px; line-height: 1.65; }
   .soglia p:first-of-type::first-letter { font-size: 62px; }
 }
+
+/* =========================================================
+   LANDING — raffinamenti tipografici ed estetici
+   ========================================================= */
+
+/* Texture di carta leggerissima sullo sfondo */
+body {
+  background-color: var(--bg);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0.48  0 0 0 0 0.12  0 0 0 0 0.12  0 0 0 0.045 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  background-repeat: repeat;
+  background-attachment: fixed;
+}
+
+/* Fleuron decorativo tra sezioni */
+.fleuron-separatore {
+  font-family: 'EB Garamond', serif;
+  text-align: center;
+  font-size: 28px;
+  color: var(--accent);
+  margin: 80px auto 20px;
+  line-height: 1;
+  letter-spacing: 0.4em;
+  opacity: 0.85;
+  user-select: none;
+}
+.fleuron-foot {
+  font-family: 'EB Garamond', serif;
+  font-size: 16px;
+  color: var(--accent);
+  line-height: 1;
+  user-select: none;
+  opacity: 0.8;
+}
+
+/* Cover — amplificazione tipografica */
+.cover.grande h1 {
+  font-size: 172px;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-shadow: 0 2px 0 rgba(122, 31, 31, 0.03);
+}
+.cover.grande h1 em {
+  font-style: italic;
+  font-weight: 500;
+  color: var(--accent);
+  position: relative;
+}
+.cover.grande .cover-sub {
+  font-style: italic;
+  font-size: 30px;
+  line-height: 1.35;
+  color: var(--ink);
+  max-width: 720px;
+  font-weight: 400;
+}
+
+/* Sigillo più presente */
+.cover-sigillo {
+  font-size: 12px;
+  letter-spacing: 0.32em;
+  color: var(--accent);
+  font-weight: 600;
+}
+.cover-sigillo::before,
+.cover-sigillo::after {
+  width: 48px;
+  background: var(--accent);
+  opacity: 0.7;
+}
+
+/* Pullquote monumentale — virgolette francesi decorative */
+.pullquote.monumentale {
+  position: relative;
+  background: linear-gradient(180deg, rgba(122,31,31,0.02), transparent 60%);
+}
+.pullquote.monumentale::before {
+  content: '“';
+  position: absolute;
+  top: -20px;
+  left: 24px;
+  font-family: 'EB Garamond', serif;
+  font-size: 200px;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.12;
+  font-style: italic;
+  font-weight: 500;
+  pointer-events: none;
+}
+.pullquote.monumentale blockquote {
+  position: relative;
+  z-index: 1;
+}
+
+/* Indice tipografico — numeri romani ingranditi e ornamentali */
+.indice-voce {
+  grid-template-columns: 76px 1fr auto;
+  gap: 24px;
+  padding: 28px 4px;
+  position: relative;
+  overflow: hidden;
+}
+.indice-voce::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.indice-voce:hover::after { width: 100%; }
+.indice-voce:hover {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.indice-voce .num {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 44px;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  align-self: start;
+  padding-top: 2px;
+  text-align: right;
+  opacity: 0.85;
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+}
+.indice-voce:hover .num {
+  opacity: 1;
+  transform: translateX(-4px);
+}
+.indice-voce .titolo {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.008em;
+}
+.indice-voce .didascalia {
+  font-size: 16px;
+  line-height: 1.55;
+  margin-top: 2px;
+}
+
+/* Stagger animation per le voci dell'indice */
+.indice-lista .indice-voce {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: voceAppare 600ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+.indice-lista .indice-voce:nth-child(1) { animation-delay: 120ms; }
+.indice-lista .indice-voce:nth-child(2) { animation-delay: 200ms; }
+.indice-lista .indice-voce:nth-child(3) { animation-delay: 280ms; }
+.indice-lista .indice-voce:nth-child(4) { animation-delay: 360ms; }
+.indice-lista .indice-voce:nth-child(5) { animation-delay: 440ms; }
+@keyframes voceAppare { to { opacity: 1; transform: translateY(0); } }
+
+/* Soglia — titolo con piccolo ornamento */
+.soglia h2 {
+  position: relative;
+  padding-bottom: 32px;
+}
+.soglia h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+/* Nota interna — refinement */
+.nota-interna {
+  position: relative;
+}
+.nota-interna::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 1px;
+  background: var(--accent);
+  opacity: 0.5;
+}
+
+/* Passaggio operativo — entry più discreta */
+.passaggio-operativo a::after {
+  content: '';
+  display: inline-block;
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  vertical-align: middle;
+  margin-left: 10px;
+  transition: width 0.25s ease;
+}
+.passaggio-operativo a:hover::after { width: 36px; }
+
+/* Responsive fini */
+@media (max-width: 900px) {
+  .cover.grande h1 { font-size: 108px; }
+  .indice-voce { grid-template-columns: 52px 1fr auto; gap: 18px; }
+  .indice-voce .num { font-size: 32px; }
+  .indice-voce .titolo { font-size: 24px; }
+  .pullquote.monumentale::before { font-size: 140px; top: -10px; left: 14px; }
+}
+@media (max-width: 640px) {
+  .cover.grande h1 { font-size: 72px; }
+  .cover.grande .cover-sub { font-size: 21px; }
+  .fleuron-separatore { margin: 60px auto 10px; font-size: 22px; }
+  .indice-voce { grid-template-columns: 44px 1fr; }
+  .indice-voce .num { font-size: 28px; }
+  .indice-voce .titolo { font-size: 21px; }
+  .indice-voce .pag { grid-column: 2; padding-top: 4px; }
+  .pullquote.monumentale::before { font-size: 110px; opacity: 0.1; }
+}
