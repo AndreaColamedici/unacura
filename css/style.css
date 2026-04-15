@@ -1212,3 +1212,200 @@ footer.site .sigillo {
   .lettera { margin-top: 70px; padding: 40px 20px; }
   .lettera p { font-size: 18px; }
 }
+
+/* =========================================================
+   LANDING — amplificazione estetica
+   ========================================================= */
+
+.cover.grande {
+  min-height: calc(100vh - 110px);
+  padding: 60px 0 40px;
+}
+.cover.grande h1 {
+  font-size: 152px;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+  font-weight: 500;
+  margin: 0 0 20px;
+}
+.cover.grande .cover-overline {
+  margin-bottom: 20px;
+  font-size: 12px;
+  letter-spacing: 0.38em;
+}
+.cover.grande .cover-sub {
+  font-size: 28px;
+  max-width: 680px;
+  line-height: 1.38;
+  color: var(--ink);
+  font-weight: 400;
+  margin-top: 28px;
+}
+.cover.grande .cover-line {
+  width: 140px;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 32px;
+}
+.cover-sigillo {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 44px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+.cover-sigillo::before,
+.cover-sigillo::after {
+  content: '';
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Pullquote monumentale — articolo di diritto in apertura */
+.pullquote.monumentale {
+  max-width: 920px;
+  margin: 30px auto 90px;
+  padding: 64px 40px 56px;
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+.pullquote.monumentale .marker {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 28px;
+  display: block;
+}
+.pullquote.monumentale blockquote {
+  font-family: 'EB Garamond', serif;
+  font-style: normal;
+  font-size: 40px;
+  line-height: 1.28;
+  color: var(--ink);
+  margin: 0 0 28px;
+  font-weight: 400;
+  letter-spacing: -0.012em;
+  text-indent: -0.5ch;
+}
+.pullquote.monumentale blockquote::first-letter {
+  color: var(--accent);
+}
+.pullquote.monumentale cite {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  font-weight: 500;
+  display: block;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  max-width: 420px;
+}
+
+/* Soglia — testo di ingresso */
+.soglia {
+  max-width: 680px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+.soglia .marker {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  margin-bottom: 28px;
+}
+.soglia h2 {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  text-align: center;
+  margin: 0 auto 54px;
+  max-width: 560px;
+  color: var(--ink);
+}
+.soglia p {
+  font-family: 'EB Garamond', serif;
+  font-size: 21px;
+  line-height: 1.72;
+  color: var(--ink);
+  margin: 0 0 28px;
+  text-align: justify;
+  hyphens: auto;
+}
+.soglia p:first-of-type::first-letter {
+  font-family: 'EB Garamond', serif;
+  font-weight: 500;
+  float: left;
+  font-size: 78px;
+  line-height: 0.85;
+  padding: 6px 14px 0 0;
+  color: var(--accent);
+}
+
+/* Nota finale interna — senza firma */
+.nota-interna {
+  max-width: 680px;
+  margin: 80px auto 60px;
+  padding: 48px 20px 40px;
+  border-top: 1px solid var(--line);
+}
+.nota-interna .marker {
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 11px;
+  color: var(--accent);
+  font-weight: 600;
+  text-align: center;
+  display: block;
+  margin-bottom: 32px;
+}
+.nota-interna p {
+  font-family: 'EB Garamond', serif;
+  font-size: 19px;
+  line-height: 1.7;
+  color: var(--ink);
+  margin: 0 0 22px;
+}
+.nota-interna .chiusa {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--muted);
+  margin-top: 36px;
+  text-align: right;
+}
+
+/* Responsive per la cover grande */
+@media (max-width: 900px) {
+  .cover.grande h1 { font-size: 96px; }
+}
+@media (max-width: 640px) {
+  .cover.grande h1 { font-size: 66px; }
+  .cover.grande .cover-sub { font-size: 21px; }
+  .pullquote.monumentale { padding: 40px 22px; }
+  .pullquote.monumentale blockquote { font-size: 26px; }
+  .soglia h2 { font-size: 28px; margin-bottom: 40px; }
+  .soglia p { font-size: 19px; line-height: 1.65; }
+  .soglia p:first-of-type::first-letter { font-size: 62px; }
+}
