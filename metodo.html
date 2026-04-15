@@ -4,52 +4,40 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Documento di metodo — La Cura</title>
+<title>Una Cura — Documento di metodo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root { --bg:#F7F3EB; --ink:#1A1A1A; --muted:#6B6357; --line:#D8CFC0; --accent:#7A1F1F; --soft:#EDE6D6; }
-  * { box-sizing:border-box; }
-  html,body { margin:0; padding:0; }
-  body { background:var(--bg); color:var(--ink); font-family:'EB Garamond',Georgia,serif; font-size:19px; line-height:1.65; }
-  .container { max-width:720px; margin:0 auto; padding:0 28px; }
-  header.site { border-bottom:1px solid var(--line); padding:24px 0 18px; background:var(--soft); margin-bottom:50px; }
-  header.site .container { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; }
-  .brand { font-weight:600; font-size:22px; }
-  .brand small { display:block; font-family:'Inter',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:0.18em; color:var(--muted); margin-top:2px; font-weight:500; }
-  nav a { font-family:'Inter',sans-serif; font-size:13px; color:var(--accent); text-decoration:none; letter-spacing:0.04em; font-weight:500; }
-  .overline { font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:0.2em; color:var(--accent); font-weight:600; margin-bottom:10px; }
-  h1 { font-weight:500; font-size:42px; line-height:1.15; margin:0 0 8px; }
-  .subtitle { font-size:22px; color:var(--muted); font-style:italic; margin:0 0 8px; }
-  .note { font-family:'Inter',sans-serif; font-size:13px; color:var(--muted); font-style:italic; margin-bottom:50px; }
-  h2 { font-weight:500; font-size:26px; margin:48px 0 16px; padding-top:16px; border-top:1px solid var(--line); }
-  h2 .num { color:var(--accent); font-weight:600; margin-right:10px; }
-  h3 { font-family:'Inter',sans-serif; font-weight:600; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:var(--muted); margin:26px 0 10px; }
-  p { margin:0 0 16px; }
-  .urgent-box { background:var(--soft); border-left:3px solid var(--accent); padding:20px 24px; margin-top:40px; }
-  .urgent-box h3 { margin-top:0; color:var(--accent); }
-  footer.site { margin-top:80px; padding:28px 0; border-top:1px solid var(--line); background:var(--soft); color:var(--muted); font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.04em; }
-  footer.site .container { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-  a.back { font-family:'Inter',sans-serif; font-size:13px; color:var(--accent); text-decoration:none; letter-spacing:0.04em; font-weight:500; }
-  @media (max-width:640px){ h1{font-size:34px;} body{font-size:17px;} }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="reading-progress"><div class="rp-fill"></div></div>
+
 <header class="site">
-  <div class="container">
-    <div class="brand">La Cura<small>Coordinamento interno</small></div>
-    <nav><a href="index.html">← Torna al coordinamento</a></nav>
+  <div class="container-wide">
+    <a href="index.html" class="brand">Una Cura<small>Coordinamento interno · bozza di lavoro</small></a>
+    <nav class="main">
+      <a href="index.html">Cruscotto</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="metodo.html" class="active">Metodo</a>
+      <a href="voci.html">Voci</a>
+      <a href="materiali.html">Materiali</a>
+      <a href="calendario.html">Calendario</a>
+    </nav>
+    <div class="countdown">
+      <span class="days" data-countdown>—</span>
+      <span class="label">giorni<br>a Taranto</span>
+    </div>
   </div>
 </header>
 
-<main class="container">
+<main class="reading">
 
   <div class="overline">Documento di metodo · prima bozza · 15 aprile 2026</div>
   <h1>La forma della Cura</h1>
   <p class="subtitle">Governance, nodi territoriali, agenda operativa</p>
-  <p class="note">Bozza di lavoro interna, destinata alla discussione tra i soggetti fondatori prima del lancio pubblico del primo maggio 2026 a Taranto.</p>
+  <div class="dateline">Bozza interna per i soggetti fondatori · lancio 1° maggio 2026 · Taranto</div>
 
   <h2><span class="num">1.</span>Che cosa è La Cura</h2>
   <p>La Cura è un'iniziativa civile apartitica che si costituisce attorno al principio enunciato nel manifesto: nessuna vita è sacrificabile, e questo principio è il pavimento della Costituzione italiana, del diritto internazionale e della democrazia sostanziale. La Cura si costituirà formalmente come associazione di promozione sociale entro sei mesi dal lancio, con sede legale in una delle città aderenti e sede operativa itinerante. Nel periodo tra il primo maggio 2026 e la costituzione formale, La Cura opera come comitato promotore, sostenuto dalle organizzazioni di áncora che ne firmano il manifesto e dal presidium provvisorio. La scelta della forma associativa è strategica: consente di aprire un conto corrente dedicato con trasparenza pubblica dei flussi, di stipulare accordi con altre associazioni, di comparire in sede istituzionale come soggetto riconoscibile, di proteggere i singoli fondatori da responsabilità personali sui contenuti pubblicati a nome del collettivo.</p>
@@ -100,16 +88,15 @@
     <p>Le tre decisioni più urgenti, da prendere con Francesca entro il 22 aprile: prima battaglia, composizione del presidium provvisorio, lista chiusa delle organizzazioni di áncora.</p>
   </div>
 
-  <p style="margin-top:60px;"><a class="back" href="index.html">← Torna al coordinamento</a></p>
-
 </main>
 
 <footer class="site">
-  <div class="container">
-    <div>La Cura · documento di metodo · prima bozza</div>
-    <div>Documento in lavorazione</div>
+  <div class="container-wide">
+    <div>Una Cura · documento di metodo · prima bozza</div>
+    <div class="sigillo">UC · MMXXVI · Taranto</div>
   </div>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>

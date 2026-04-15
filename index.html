@@ -4,460 +4,479 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>La Cura — coordinamento interno</title>
+<title>Una Cura — Coordinamento interno</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #F7F3EB;
-    --ink: #1A1A1A;
-    --muted: #6B6357;
-    --line: #D8CFC0;
-    --accent: #7A1F1F;
-    --soft: #EDE6D6;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'EB Garamond', Georgia, serif;
-    font-size: 19px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  .container {
-    max-width: 780px;
-    margin: 0 auto;
-    padding: 0 28px;
-  }
-  header.site {
-    border-bottom: 1px solid var(--line);
-    padding: 28px 0 20px;
-    margin-bottom: 40px;
-    background: var(--soft);
-  }
-  header.site .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 16px;
-  }
-  .brand {
-    font-family: 'EB Garamond', serif;
-    font-weight: 600;
-    font-size: 26px;
-    letter-spacing: 0.02em;
-  }
-  .brand small {
-    display: block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--muted);
-    margin-top: 2px;
-  }
-  nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 22px;
-    flex-wrap: wrap;
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-  }
-  nav a {
-    color: var(--ink);
-    text-decoration: none;
-    border-bottom: 1px solid transparent;
-    padding-bottom: 2px;
-  }
-  nav a:hover { border-bottom-color: var(--accent); }
-  h1 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 500;
-    font-size: 42px;
-    line-height: 1.15;
-    margin: 0 0 10px;
-    letter-spacing: -0.01em;
-  }
-  h2 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 500;
-    font-size: 28px;
-    margin: 48px 0 18px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
-    letter-spacing: -0.005em;
-  }
-  h3 {
-    font-family: 'Inter', sans-serif;
-    font-weight: 600;
-    font-size: 13px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin: 32px 0 10px;
-  }
-  p { margin: 0 0 16px; }
-  .lead {
-    font-size: 21px;
-    color: var(--muted);
-    margin-bottom: 32px;
-  }
-  .status {
-    background: var(--soft);
-    border-left: 3px solid var(--accent);
-    padding: 18px 22px;
-    margin: 24px 0;
-    font-size: 17px;
-  }
-  .status strong { font-weight: 600; }
-  .countdown {
-    font-family: 'Inter', sans-serif;
-    font-size: 13px;
-    text-transform: uppercase;
-    letter-spacing: 0.18em;
-    color: var(--accent);
-    font-weight: 600;
-    margin-bottom: 8px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 16px;
-    margin: 18px 0;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 12px;
-    border-bottom: 1px solid var(--line);
-    vertical-align: top;
-  }
-  th {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--muted);
-    background: var(--soft);
-  }
-  .tag {
-    display: inline-block;
-    font-family: 'Inter', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-    background: var(--soft);
-    color: var(--muted);
-  }
-  .tag.todo { background: #F2E5CE; color: #8A5A1A; }
-  .tag.doing { background: #E5EAF2; color: #2A4A7A; }
-  .tag.done { background: #DBE8D8; color: #3A6A3A; }
-  .tag.hot { background: #F2D8D8; color: var(--accent); }
-  .timeline {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0;
-    border-left: 2px solid var(--line);
-  }
-  .timeline li {
-    position: relative;
-    padding: 12px 0 12px 28px;
-    margin-left: 0;
-  }
-  .timeline li::before {
-    content: '';
-    position: absolute;
-    left: -7px;
-    top: 22px;
-    width: 12px;
-    height: 12px;
-    background: var(--bg);
-    border: 2px solid var(--accent);
-    border-radius: 50%;
-  }
-  .timeline .date {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-  }
-  .decision {
-    border: 1px solid var(--line);
-    padding: 20px 22px;
-    margin: 16px 0;
-    background: #FCFAF4;
-  }
-  .decision h4 {
-    font-family: 'EB Garamond', serif;
-    font-weight: 600;
-    font-size: 20px;
-    margin: 0 0 8px;
-  }
-  .decision .meta {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-bottom: 10px;
-  }
-  footer.site {
-    margin-top: 80px;
-    padding: 28px 0;
-    border-top: 1px solid var(--line);
-    background: var(--soft);
-    color: var(--muted);
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    letter-spacing: 0.04em;
-  }
-  footer.site .container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  a.inline {
-    color: var(--accent);
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  .two-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-  }
-  @media (max-width: 640px) {
-    h1 { font-size: 34px; }
-    .two-col { grid-template-columns: 1fr; }
-    body { font-size: 17px; }
-  }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site">
-  <div class="container">
-    <div class="brand">
-      La Cura
-      <small>Coordinamento interno · accesso riservato</small>
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#stato">Stato</a></li>
-        <li><a href="#manifesto">Manifesto</a></li>
-        <li><a href="#metodo">Metodo</a></li>
-        <li><a href="#agenda">Agenda</a></li>
-        <li><a href="#decisioni">Decisioni</a></li>
-        <li><a href="#matrice">Matrice</a></li>
-        <li><a href="#documenti">Documenti</a></li>
-      </ul>
+  <div class="container-wide">
+    <a href="index.html" class="brand">Una Cura<small>Coordinamento interno</small></a>
+    <nav class="main">
+      <a href="index.html" class="active">Cruscotto</a>
+      <a href="manifesto.html">Manifesto</a>
+      <a href="metodo.html">Metodo</a>
+      <a href="voci.html">Voci</a>
+      <a href="materiali.html">Materiali</a>
+      <a href="calendario.html">Calendario</a>
     </nav>
+    <div class="countdown">
+      <div class="days" data-countdown>—</div>
+      <div class="label">giorni a Taranto<br>primo maggio</div>
+    </div>
   </div>
 </header>
 
-<main class="container">
+<main class="container-wide">
 
-  <section id="stato">
-    <div class="countdown">15 giorni al primo maggio · Taranto</div>
-    <h1>La Cura</h1>
-    <p class="lead">Un processo ricostituente che nasce il primo maggio 2026 a Taranto, dentro Uno Maggio Libero e Pensante, attorno al principio che nessuna vita è sacrificabile.</p>
-
-    <div class="status">
-      <strong>Stato del progetto, 15 aprile 2026.</strong> Il manifesto è alla seconda bozza. Il documento di metodo è alla prima bozza. La scelta della prima battaglia operativa è aperta. Il presidium provvisorio non è ancora composto. La matrice dei contatti è inizializzata e attende il primo giro di telefonate. La piattaforma pubblica non è ancora stata aperta.
+  <section class="hero fade-in">
+    <div class="overline">Cruscotto operativo · aggiornato <span data-today>—</span></div>
+    <h1>Una Cura.</h1>
+    <p class="lead">Iniziativa civile apartitica per la ricostituzione del patto: Costituzione italiana, diritto internazionale, dignità di ogni vita. Lancio pubblico al festival Uno Maggio Libero e Pensante di Taranto, primo maggio 2026.</p>
+    <div class="meta">
+      <span><strong>Fase.</strong> Preparazione lancio</span>
+      <span><strong>Presidium.</strong> In composizione</span>
+      <span><strong>Stato associativo.</strong> Comitato promotore</span>
+      <span><strong>Riferimento pubblico.</strong> Da concordare con Francesca</span>
     </div>
-
-    <h3>I tre fronti di lavoro delle prossime due settimane</h3>
-    <p>Il primo fronte è la chiusura del manifesto, che richiede un giro di lettura con Francesca Albanese e con due o tre altre voci che entreranno tra i fondatori. Il secondo fronte è la costituzione del presidium provvisorio di nove persone, che devono essere contattate e avere accettato prima del 29 aprile. Il terzo fronte è il contatto delle organizzazioni di áncora, con l'obiettivo minimo di dieci adesioni entro la stessa data. Su tutti e tre i fronti, il sito serve come luogo unico di aggiornamento: ogni contatto fatto, ogni risposta ricevuta, ogni adesione acquisita viene riportata qui.</p>
   </section>
 
-  <section id="manifesto">
-    <h2>Manifesto</h2>
-    <p>Il manifesto è il testo costitutivo. È in lavorazione, con una seconda bozza consolidata il 15 aprile 2026 che incorpora il radicamento a Taranto e il richiamo ad Arrigoni, il lessico giuridico internazionale (Convenzione sul genocidio del 1948, ordinanze CIG del 2024, parere consultivo del 19 luglio 2024), il paragrafo sulla cura come lavoro femminile storicamente non pagato, la genealogia che passa da don Tonino Bello e Alex Langer, e una chiusa più schierata sul piano politico.</p>
-    <p><a class="inline" href="manifesto.html">Leggi il manifesto, versione 2</a></p>
-    <h3>Lavori in corso</h3>
-    <p>La versione palco, più breve e ritmica, pensata per essere letta da Francesca il primo maggio, è ancora da produrre. Il comunicato congiunto con le organizzazioni di áncora, destinato al 2 maggio, è da preparare una volta consolidate le adesioni.</p>
+  <section class="block fade-in">
+    <div class="section-head">
+      <h2>Ricostituzione in corso</h2>
+      <div class="eyebrow">Aggregato dinamico · stato salvato in locale</div>
+    </div>
+    <p style="font-family:'EB Garamond',serif;font-size:18px;color:var(--muted);font-style:italic;margin:0 0 10px;max-width:640px;">Indicatore sintetico della preparazione del lancio. Somma progressiva delle decisioni chiuse, delle organizzazioni di áncora confermate e dei primi firmatari individuali. Cresce mentre il patto si ricompone.</p>
+    <div class="ricostituzione">
+      <div class="ric-head">
+        <div class="ric-title">Avanzamento complessivo</div>
+        <div class="ric-pct">0%</div>
+      </div>
+      <div class="bar"><div class="bar-fill"></div></div>
+      <div class="ric-sub">
+        <div>
+          <span class="val" data-ric-decisioni>0/8</span>
+          <span class="lab">Decisioni chiuse</span>
+        </div>
+        <div>
+          <span class="val" data-ric-organizzazioni>0/15</span>
+          <span class="lab">Organizzazioni aderite</span>
+        </div>
+        <div>
+          <span class="val" data-ric-firmatari>0/14</span>
+          <span class="lab">Firmatari confermati</span>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section id="metodo">
-    <h2>Metodo</h2>
-    <p>Il documento di metodo definisce la forma della Cura: associazione di promozione sociale da costituirsi entro sei mesi, presidium di nove membri a rotazione biennale con incompatibilità chiare, nodi territoriali vincolati a uno dei sei assi costituzionali (lavoro, salute, istruzione, ambiente, giustizia, diritti civili), piattaforma pubblica, rapporto annuale sullo stato della Costituzione, pagella delle forze politiche in vista delle elezioni. La prima battaglia operativa è in attesa di scelta tra due opzioni: la proposta di legge di iniziativa popolare sulla riforma della 185/90 sull'export di armi, o la denuncia formale sulla responsabilità dello Stato italiano ai sensi del diritto internazionale umanitario.</p>
-    <p><a class="inline" href="metodo.html">Leggi il documento di metodo, versione 1</a></p>
-  </section>
-
-  <section id="agenda">
-    <h2>Agenda dei primi cento giorni</h2>
-    <ul class="timeline">
-      <li>
-        <div class="date">22 aprile 2026</div>
-        <p>Tre decisioni con Francesca Albanese: prima battaglia operativa, presidium provvisorio, perimetro chiuso delle organizzazioni di áncora.</p>
+  <section class="block fade-in">
+    <div class="section-head">
+      <h2>Decisioni aperte</h2>
+      <div class="eyebrow">Chiudere entro il 29 aprile · tre di queste entro il 22</div>
+    </div>
+    <ul class="decisions">
+      <li data-dec="battaglia">
+        <input type="checkbox" id="d1"><label for="d1" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Scegliere e annunciare la prima battaglia operativa</p>
+          <div class="dec-meta"><strong>Entro 22 aprile.</strong> Opzione A: proposta di legge di iniziativa popolare riforma 185/90. Opzione B: denuncia formale alla Procura. Dialogo con Francesca.</div>
+        </div>
+        <span class="urgency u-now">Entro 7 giorni</span>
       </li>
-      <li>
-        <div class="date">29 aprile 2026</div>
-        <p>Obiettivo: dieci organizzazioni aderenti, quindici firmatari individuali, manifesto consolidato in versione definitiva, comunicato congiunto pronto per il 2 maggio.</p>
+      <li data-dec="presidium">
+        <input type="checkbox" id="d2"><label for="d2" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Comporre il presidium provvisorio (nove nomi)</p>
+          <div class="dec-meta"><strong>Entro 22 aprile.</strong> Almeno cinque donne, almeno due del Mezzogiorno, almeno due da organizzazioni di áncora. Nessun parlamentare in carica.</div>
+        </div>
+        <span class="urgency u-now">Entro 7 giorni</span>
       </li>
-      <li>
-        <div class="date">1 maggio 2026 · Taranto</div>
-        <p>Lettura pubblica del manifesto dentro Uno Maggio Libero e Pensante. Annuncio della prima battaglia operativa. Apertura delle adesioni.</p>
+      <li data-dec="ancore">
+        <input type="checkbox" id="d3"><label for="d3" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Chiudere la lista delle organizzazioni di áncora da contattare</p>
+          <div class="dec-meta"><strong>Entro 22 aprile.</strong> Per ciascuna definire chi contatta, con quale messaggio, entro quando.</div>
+        </div>
+        <span class="urgency u-now">Entro 7 giorni</span>
       </li>
-      <li>
-        <div class="date">2 maggio 2026</div>
-        <p>Pubblicazione del manifesto su almeno tre testate (Il Manifesto, Avvenire, più una generalista). Comunicato congiunto con le organizzazioni di áncora.</p>
+      <li data-dec="dominio">
+        <input type="checkbox" id="d4"><label for="d4" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Registrare il dominio e l'identità digitale pubblica</p>
+          <div class="dec-meta"><strong>Entro 22 aprile.</strong> <em>lacura.it</em> risulta occupato. Verificare <em>unacura.it</em>, <em>unacura.org</em> e varianti; decidere account pubblici (Bluesky, Instagram, Substack).</div>
+        </div>
+        <span class="urgency u-now">Entro 7 giorni</span>
       </li>
-      <li>
-        <div class="date">15 maggio 2026</div>
-        <p>Conferenza stampa nazionale a Roma con Francesca Albanese e tre membri del presidium provvisorio.</p>
+      <li data-dec="sede">
+        <input type="checkbox" id="d5"><label for="d5" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Sede legale della futura associazione</p>
+          <div class="dec-meta"><strong>Entro 29 aprile.</strong> Preferibilmente città del Mezzogiorno con struttura ospitante. Ipotesi: Taranto, Bari, Palermo, Napoli.</div>
+        </div>
+        <span class="urgency u-week">Due settimane</span>
       </li>
-      <li>
-        <div class="date">31 maggio 2026</div>
-        <p>Apertura della piattaforma pubblica con il modulo di adesione al manifesto, il protocollo per costituire un nodo, i primi materiali di documentazione.</p>
+      <li data-dec="digitale">
+        <input type="checkbox" id="d6"><label for="d6" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Responsabile infrastruttura digitale</p>
+          <div class="dec-meta"><strong>Entro 29 aprile.</strong> Piattaforma di adesione, newsletter, podcast, archivio. Valutare appoggio interno Tlon o collaborazione esterna.</div>
+        </div>
+        <span class="urgency u-week">Due settimane</span>
       </li>
-      <li>
-        <div class="date">15 giugno 2026</div>
-        <p>Avvio operativo della prima battaglia.</p>
+      <li data-dec="stampa">
+        <input type="checkbox" id="d7"><label for="d7" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Responsabile comunicazione stampa primi novanta giorni</p>
+          <div class="dec-meta"><strong>Entro 29 aprile.</strong> Figura professionale retribuita a partire dal terzo mese; nel frattempo coordinamento interno.</div>
+        </div>
+        <span class="urgency u-week">Due settimane</span>
       </li>
-      <li>
-        <div class="date">Fine giugno 2026</div>
-        <p>Primo evento pubblico post-Taranto in un'altra città del Mezzogiorno.</p>
-      </li>
-      <li>
-        <div class="date">10 agosto 2026</div>
-        <p>Fine dei primi cento giorni. Obiettivo: 15-25 nodi territoriali, 3000 adesioni individuali, prima battaglia pienamente operativa.</p>
+      <li data-dec="legale">
+        <input type="checkbox" id="d8"><label for="d8" style="display:none"></label>
+        <div class="dec-body">
+          <p class="dec-title">Studio legale pro bono per costituzione associativa e prima battaglia</p>
+          <div class="dec-meta"><strong>Entro 29 aprile.</strong> Serve per APS, per il collegio giuristi della denuncia o per la proposta di legge popolare.</div>
+        </div>
+        <span class="urgency u-week">Due settimane</span>
       </li>
     </ul>
   </section>
 
-  <section id="decisioni">
-    <h2>Decisioni aperte</h2>
-
-    <div class="decision">
-      <h4>1. Prima battaglia operativa</h4>
-      <div class="meta">Scadenza: 22 aprile · Decisori: Francesca Albanese, presidium provvisorio</div>
-      <p>Opzione A, proposta di legge di iniziativa popolare sulla riforma della legge 185/90 sull'export di armi, come campagna di massa da giugno a novembre 2026 con raccolta di 50.000 firme. Opzione B, denuncia formale di un collegio di giuristi sulla responsabilità dello Stato ai sensi dell'articolo 1 comune delle Convenzioni di Ginevra, della Convenzione del 1948, dell'articolo 16 del progetto sulla responsabilità degli Stati. Proposta di bozza: opzione A come campagna pubblica, opzione B come dossier da depositare in un secondo tempo.</p>
-      <span class="tag hot">Urgente</span>
+  <section class="block fade-in">
+    <div class="section-head">
+      <h2>Agenda · prossimi passaggi</h2>
+      <div class="eyebrow">Dalla data odierna al lancio di Taranto</div>
     </div>
-
-    <div class="decision">
-      <h4>2. Composizione del presidium provvisorio</h4>
-      <div class="meta">Scadenza: 29 aprile · Decisori: Andrea, Maura, Francesca + primi contatti</div>
-      <p>Nove persone, almeno cinque donne, almeno due dal Mezzogiorno, almeno due espressione di organizzazioni di áncora aderenti. Incompatibilità con cariche parlamentari e direzioni di partito.</p>
-      <span class="tag hot">Urgente</span>
-    </div>
-
-    <div class="decision">
-      <h4>3. Perimetro chiuso delle organizzazioni di áncora</h4>
-      <div class="meta">Scadenza: 22 aprile · Decisori: Andrea, Maura, Francesca</div>
-      <p>Tra le quindici organizzazioni candidate (ARCI, Libera, ANPI, Emergency, Pax Christi, Rete Italiana Pace e Disarmo, Sbilanciamoci!, Forum Disuguaglianze e Diversità, Fondazione Langer, Gruppo Abele, Cittadinanzattiva, Casa della Carità, Medu, Coscioni, ASGI), individuare le prime dieci da contattare in via prioritaria e distribuire le telefonate.</p>
-      <span class="tag hot">Urgente</span>
-    </div>
-
-    <div class="decision">
-      <h4>4. Sede legale della costituenda associazione</h4>
-      <div class="meta">Scadenza: 15 maggio · Decisori: presidium</div>
-      <p>Taranto per forza simbolica, Roma per operatività, altra città per equilibrio. Da sciogliere dopo il lancio.</p>
-      <span class="tag todo">Rinviata</span>
-    </div>
-
-    <div class="decision">
-      <h4>5. Dominio e identità digitale</h4>
-      <div class="meta">Scadenza: 20 aprile · Decisori: Andrea</div>
-      <p>Candidati: lacura.it, lacura.eu, dovereDicura.it. Da verificare disponibilità e registrare il preferito.</p>
-      <span class="tag doing">In corso</span>
-    </div>
-
-  </section>
-
-  <section id="matrice">
-    <h2>Matrice dei contatti</h2>
-
-    <h3>Organizzazioni di áncora</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Organizzazione</th>
-          <th>Interlocutore</th>
-          <th>Chi chiama</th>
-          <th>Stato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>ARCI nazionale</td><td>Presidenza nazionale</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Libera</td><td>don Luigi Ciotti</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>ANPI</td><td>Presidenza nazionale</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Emergency</td><td>Rossella Miccio</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Pax Christi</td><td>don Renato Sacco</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Rete Italiana Pace e Disarmo</td><td>Francesco Vignarca</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Sbilanciamoci!</td><td>Giulio Marcon</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Forum Disuguaglianze e Diversità</td><td>Fabrizio Barca</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Fondazione Alexander Langer</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Gruppo Abele</td><td>Coordinamento</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Cittadinanzattiva</td><td>Segretariato</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Casa della Carità</td><td>Don Virginio Colmegna</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Medici per i Diritti Umani</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Associazione Luca Coscioni</td><td>Segretariato</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>ASGI</td><td>Presidenza</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-      </tbody>
-    </table>
-
-    <h3>Primi firmatari individuali</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Nome</th>
-          <th>Ambito</th>
-          <th>Chi chiama</th>
-          <th>Stato</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Luigi Ferrajoli</td><td>Diritto costituzionale, "Per una Costituzione della Terra"</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Gustavo Zagrebelsky</td><td>Diritto costituzionale, Libertà e Giustizia</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Salvatore Settis</td><td>Storia dell'arte, patrimonio, costituzione</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Marco Revelli</td><td>Storia, lavoro, pensiero politico</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Alex Zanotelli</td><td>Pacifismo, giustizia sociale, comboniani</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Nadia Urbinati</td><td>Teoria politica, democrazia</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Chiara Valerio</td><td>Scrittura, editoria, presenza pubblica</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Donatella Di Cesare</td><td>Filosofia politica</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Gherardo Colombo</td><td>Magistratura, costituzione, scuola</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Mimmo Lucano</td><td>Accoglienza, Riace</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Christian Raimo</td><td>Scuola, scrittura, municipio</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Loredana Lipperini</td><td>Scrittura, radio, cultura</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Igiaba Scego</td><td>Scrittura, diritti, razzismo</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-        <tr><td>Carlo Rovelli</td><td>Scienza, pacifismo</td><td>—</td><td><span class="tag todo">Da contattare</span></td></tr>
-      </tbody>
-    </table>
-    <p><em>Intestazione "Chi chiama" da compilare manualmente dopo la riunione con Francesca del 22 aprile.</em></p>
-  </section>
-
-  <section id="documenti">
-    <h2>Documenti</h2>
-    <div class="two-col">
-      <div>
-        <h3>Testi costitutivi</h3>
-        <p><a class="inline" href="manifesto.html">Manifesto, versione 2</a></p>
-        <p><a class="inline" href="metodo.html">Metodo, versione 1</a></p>
+    <div class="agenda">
+      <div class="agenda-item today">
+        <div class="agenda-date">15 apr<span class="giorno">oggi · mer</span></div>
+        <div class="agenda-text">Chiusura del metodo interno e allineamento con Francesca sul perimetro dei fondatori.<span class="sub">Andrea · Francesca</span></div>
+        <div class="agenda-tag">Allineamento</div>
       </div>
-      <div>
-        <h3>Da produrre</h3>
-        <p>Versione palco del manifesto</p>
-        <p>Comunicato congiunto del 2 maggio</p>
-        <p>Testo breve per i firmatari individuali</p>
-        <p>Testo breve per le organizzazioni di áncora</p>
-        <p>Statuto provvisorio dell'associazione</p>
+      <div class="agenda-item">
+        <div class="agenda-date">18 apr<span class="giorno">sab</span></div>
+        <div class="agenda-text">Prima chiamata ristretta del presidium provvisorio (bozza a sei nomi).<span class="sub">Francesca · Andrea · Maura · +3</span></div>
+        <div class="agenda-tag">Governance</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">20 apr<span class="giorno">lun</span></div>
+        <div class="agenda-text">Primi contatti con organizzazioni di áncora (Libera, ARCI, Pax Christi, Rete Disarmo, Forum DD).<span class="sub">Cinque interlocutori per partire</span></div>
+        <div class="agenda-tag">Áncore</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">22 apr<span class="giorno">mer</span></div>
+        <div class="agenda-text">Chiusura delle tre decisioni strategiche con Francesca: prima battaglia, presidium, lista áncore.<span class="sub">Call dedicata</span></div>
+        <div class="agenda-tag">Decisione</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">25 apr<span class="giorno">sab · Liberazione</span></div>
+        <div class="agenda-text">Pubblicazione simbolica del manifesto in bozza tra le persone fidate, con richiesta di firma entro il 29.<span class="sub">Lista ristretta</span></div>
+        <div class="agenda-tag">Segnale</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">29 apr<span class="giorno">mer</span></div>
+        <div class="agenda-text">Chiusura delle adesioni di prima cerchia: dieci organizzazioni, quindici firme individuali, struttura comunicativa pronta.<span class="sub">Soglia minima lancio</span></div>
+        <div class="agenda-tag">Milestone</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">1 mag<span class="giorno">ven · Taranto</span></div>
+        <div class="agenda-text">Lancio pubblico a Taranto, Uno Maggio Libero e Pensante. Presentazione del manifesto dal palco.<span class="sub">Evento · diretta</span></div>
+        <div class="agenda-tag">Lancio</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">2 mag<span class="giorno">sab</span></div>
+        <div class="agenda-text">Pubblicazione del manifesto sulla stampa (Il Manifesto, Avvenire, più una generalista).<span class="sub">Coordinamento ufficio stampa</span></div>
+        <div class="agenda-tag">Stampa</div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-date">15 mag<span class="giorno">ven</span></div>
+        <div class="agenda-text">Conferenza stampa nazionale a Roma con Francesca e tre membri del presidium.<span class="sub">Evento · ufficio stampa</span></div>
+        <div class="agenda-tag">Stampa</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block fade-in">
+    <div class="section-head">
+      <h2>Matrice dei contatti</h2>
+      <div class="eyebrow">Cliccare stato e note per aggiornare. Salvataggio automatico in locale.</div>
+    </div>
+    <div class="matrice-wrap">
+      <table class="matrice">
+        <thead>
+          <tr>
+            <th style="width:30%">Soggetto</th>
+            <th style="width:18%">Stato</th>
+            <th style="width:14%">Referente interno</th>
+            <th style="width:12%">Data contatto</th>
+            <th style="width:26%">Nota</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="gruppo-header"><td colspan="5">Organizzazioni di áncora</td></tr>
+          <tr data-row="o-libera" data-tipo="org">
+            <td><div class="nome">Libera</div><div class="sub">Don Luigi Ciotti · associazioni, nomi e numeri contro le mafie</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-arci" data-tipo="org">
+            <td><div class="nome">ARCI nazionale</div><div class="sub">Presidenza nazionale · rete dei circoli</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-anpi" data-tipo="org">
+            <td><div class="nome">ANPI</div><div class="sub">Associazione Nazionale Partigiani d'Italia</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-emergency" data-tipo="org">
+            <td><div class="nome">Emergency</div><div class="sub">Ong sanitaria · eredità Gino Strada</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-paxchristi" data-tipo="org">
+            <td><div class="nome">Pax Christi Italia</div><div class="sub">Don Renato Sacco · movimento pacifista cattolico</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-disarmo" data-tipo="org">
+            <td><div class="nome">Rete Italiana Pace e Disarmo</div><div class="sub">Francesco Vignarca · esperto 185/90</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-sbilanciamoci" data-tipo="org">
+            <td><div class="nome">Sbilanciamoci!</div><div class="sub">Campagna per economie e politiche di giustizia</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-forumdd" data-tipo="org">
+            <td><div class="nome">Forum Disuguaglianze e Diversità</div><div class="sub">Fabrizio Barca · rete di ricerca e azione civica</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-langer" data-tipo="org">
+            <td><div class="nome">Fondazione Alexander Langer</div><div class="sub">Conversione ecologica socialmente desiderabile</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-abele" data-tipo="org">
+            <td><div class="nome">Gruppo Abele</div><div class="sub">Torino · eredità civile di don Ciotti</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-cittadinanza" data-tipo="org">
+            <td><div class="nome">Cittadinanzattiva</div><div class="sub">Movimento di partecipazione civica</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-casacarita" data-tipo="org">
+            <td><div class="nome">Casa della Carità</div><div class="sub">Milano · don Virginio Colmegna</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-medu" data-tipo="org">
+            <td><div class="nome">Medici per i Diritti Umani</div><div class="sub">MEDU · salute come diritto</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-coscioni" data-tipo="org">
+            <td><div class="nome">Associazione Luca Coscioni</div><div class="sub">Libertà di ricerca e diritti civili</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="o-asgi" data-tipo="org">
+            <td><div class="nome">ASGI</div><div class="sub">Associazione Studi Giuridici sull'Immigrazione</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="aderito">Aderito</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+
+          <tr class="gruppo-header"><td colspan="5">Primi firmatari individuali</td></tr>
+          <tr data-row="f-ferrajoli" data-tipo="firm">
+            <td><div class="nome">Luigi Ferrajoli</div><div class="sub">Giurista · teoria del costituzionalismo garantista</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-zagrebelsky" data-tipo="firm">
+            <td><div class="nome">Gustavo Zagrebelsky</div><div class="sub">Giurista · ex presidente Corte Costituzionale</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-settis" data-tipo="firm">
+            <td><div class="nome">Salvatore Settis</div><div class="sub">Archeologo · paesaggio costituzionale</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-revelli" data-tipo="firm">
+            <td><div class="nome">Marco Revelli</div><div class="sub">Storico · politiche della dignità</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-zanotelli" data-tipo="firm">
+            <td><div class="nome">Alex Zanotelli</div><div class="sub">Padre comboniano · voce dei sud del mondo</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-urbinati" data-tipo="firm">
+            <td><div class="nome">Nadia Urbinati</div><div class="sub">Politologa · teoria della democrazia</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-valerio" data-tipo="firm">
+            <td><div class="nome">Chiara Valerio</div><div class="sub">Scrittrice · voce civile</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-dicesare" data-tipo="firm">
+            <td><div class="nome">Donatella Di Cesare</div><div class="sub">Filosofa · stranieri residenti</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-colombo" data-tipo="firm">
+            <td><div class="nome">Gherardo Colombo</div><div class="sub">Ex magistrato · Mani Pulite, pedagogia costituzionale</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-lucano" data-tipo="firm">
+            <td><div class="nome">Mimmo Lucano</div><div class="sub">Ex sindaco di Riace · modello dell'accoglienza</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-raimo" data-tipo="firm">
+            <td><div class="nome">Christian Raimo</div><div class="sub">Scrittore · scuola e diritti</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-lipperini" data-tipo="firm">
+            <td><div class="nome">Loredana Lipperini</div><div class="sub">Scrittrice · Fahrenheit, voce civile</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-scego" data-tipo="firm">
+            <td><div class="nome">Igiaba Scego</div><div class="sub">Scrittrice · Italia postcoloniale</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+          <tr data-row="f-rovelli" data-tipo="firm">
+            <td><div class="nome">Carlo Rovelli</div><div class="sub">Fisico · voce internazionale per il disarmo</div></td>
+            <td><select class="stato"><option value="">—</option><option value="da-contattare">Da contattare</option><option value="contattato">Contattato</option><option value="in-attesa">In attesa</option><option value="confermato">Confermato</option><option value="declinato">Declinato</option></select></td>
+            <td><input class="cell-input" data-key="ref" type="text" placeholder="chi"></td>
+            <td><input class="cell-input" data-key="data" type="text" placeholder="gg/mm"></td>
+            <td><input class="cell-input" data-key="nota" type="text" placeholder=""></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block fade-in">
+    <div class="section-head">
+      <h2>Documenti vivi</h2>
+      <div class="eyebrow">In lavorazione · aggiornabili fino al lancio</div>
+    </div>
+    <div class="doc-grid">
+      <a class="doc-card" href="manifesto.html">
+        <div class="doc-eyebrow">Seconda bozza · 15 apr</div>
+        <h3 class="doc-title">Il dovere di cura</h3>
+        <p class="doc-desc">Il manifesto. Una società che si ricostituisce a partire dalla Costituzione e dal diritto internazionale.</p>
+      </a>
+      <a class="doc-card" href="metodo.html">
+        <div class="doc-eyebrow">Prima bozza · 15 apr</div>
+        <h3 class="doc-title">La forma della Cura</h3>
+        <p class="doc-desc">Dodici capitoli operativi: governance, nodi territoriali, primi cento giorni, prima battaglia.</p>
+      </a>
+      <a class="doc-card" href="voci.html">
+        <div class="doc-eyebrow">Distribuzione portavoce</div>
+        <h3 class="doc-title">Le voci della Cura</h3>
+        <p class="doc-desc">Chi parla di cosa, con quale biografia pubblica, su quali temi passa la parola.</p>
+      </a>
+      <a class="doc-card" href="materiali.html">
+        <div class="doc-eyebrow">Bozze comunicative</div>
+        <h3 class="doc-title">Materiali di lancio</h3>
+        <p class="doc-desc">Comunicato stampa, appello ai firmatari, mail alle organizzazioni, scheda per i giornalisti.</p>
+      </a>
+      <a class="doc-card" href="calendario.html">
+        <div class="doc-eyebrow">Primi cento giorni</div>
+        <h3 class="doc-title">Calendario operativo</h3>
+        <p class="doc-desc">Dal primo maggio al 10 agosto 2026. Azioni, luoghi, obiettivi minimi.</p>
+      </a>
+      <a class="doc-card" href="#note-rapide">
+        <div class="doc-eyebrow">Quaderno</div>
+        <h3 class="doc-title">Note rapide</h3>
+        <p class="doc-desc">Spazio di appunti condiviso. Tutto resta salvato in locale sul tuo browser.</p>
+      </a>
+    </div>
+  </section>
+
+  <section class="block fade-in" id="note-rapide">
+    <div class="section-head">
+      <h2>Note rapide</h2>
+      <div class="eyebrow">Salvate automaticamente nel tuo browser</div>
+    </div>
+    <div class="note-composer">
+      <textarea placeholder="Cose da ricordare. Nomi che non devono sfuggire. Ganci che si aprono nel giorno. La voce bassa del coordinamento. Tutto resta qui."></textarea>
+      <div class="note-meta">
+        <span class="note-ts">Nessuna nota salvata</span>
+        <span class="note-count">0 caratteri</span>
       </div>
     </div>
   </section>
@@ -465,11 +484,12 @@
 </main>
 
 <footer class="site">
-  <div class="container">
-    <div>La Cura · coordinamento interno · bozza di lavoro</div>
-    <div>Aggiornato al 15 aprile 2026</div>
+  <div class="container-wide">
+    <div>Una Cura · coordinamento interno · bozza di lavoro</div>
+    <div class="sigillo">UC · MMXXVI · Taranto</div>
   </div>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>

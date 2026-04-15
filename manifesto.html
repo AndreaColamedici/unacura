@@ -4,45 +4,35 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Il dovere di cura — La Cura</title>
+<title>Una Cura — Manifesto</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root { --bg:#F7F3EB; --ink:#1A1A1A; --muted:#6B6357; --line:#D8CFC0; --accent:#7A1F1F; --soft:#EDE6D6; }
-  * { box-sizing:border-box; }
-  html,body { margin:0; padding:0; }
-  body { background:var(--bg); color:var(--ink); font-family:'EB Garamond',Georgia,serif; font-size:20px; line-height:1.7; -webkit-font-smoothing:antialiased; }
-  .container { max-width:720px; margin:0 auto; padding:0 28px; }
-  header.site { border-bottom:1px solid var(--line); padding:24px 0 18px; background:var(--soft); margin-bottom:60px; }
-  header.site .container { display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:12px; }
-  .brand { font-weight:600; font-size:22px; }
-  .brand small { display:block; font-family:'Inter',sans-serif; font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.18em; color:var(--muted); margin-top:2px; }
-  nav a { font-family:'Inter',sans-serif; font-size:13px; color:var(--ink); text-decoration:none; border-bottom:1px solid transparent; padding-bottom:2px; letter-spacing:0.04em; font-weight:500; }
-  nav a:hover { border-bottom-color:var(--accent); }
-  .overline { font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:0.2em; color:var(--accent); font-weight:600; margin-bottom:12px; }
-  h1 { font-weight:500; font-size:46px; line-height:1.15; margin:0 0 10px; letter-spacing:-0.01em; }
-  .subtitle { font-size:24px; color:var(--muted); font-style:italic; font-weight:400; margin:0 0 12px; }
-  .dateline { font-family:'Inter',sans-serif; font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:var(--muted); margin-bottom:40px; font-weight:500; }
-  p { margin:0 0 22px; }
-  p.first-p::first-letter { font-size:64px; font-weight:500; float:left; line-height:0.9; padding:6px 10px 0 0; color:var(--accent); }
-  .closing { text-align:center; font-size:26px; font-weight:500; margin:50px 0 20px; color:var(--accent); letter-spacing:0.02em; }
-  footer.site { margin-top:80px; padding:28px 0; border-top:1px solid var(--line); background:var(--soft); color:var(--muted); font-family:'Inter',sans-serif; font-size:12px; letter-spacing:0.04em; }
-  footer.site .container { display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px; }
-  a.back { font-family:'Inter',sans-serif; font-size:13px; color:var(--accent); text-decoration:none; letter-spacing:0.04em; font-weight:500; }
-  @media (max-width:640px){ h1{font-size:36px;} body{font-size:18px;} }
-</style>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<div class="reading-progress"><div class="rp-fill"></div></div>
+
 <header class="site">
-  <div class="container">
-    <div class="brand">La Cura<small>Coordinamento interno</small></div>
-    <nav><a href="index.html">← Torna al coordinamento</a></nav>
+  <div class="container-wide">
+    <a href="index.html" class="brand">Una Cura<small>Coordinamento interno · bozza di lavoro</small></a>
+    <nav class="main">
+      <a href="index.html">Cruscotto</a>
+      <a href="manifesto.html" class="active">Manifesto</a>
+      <a href="metodo.html">Metodo</a>
+      <a href="voci.html">Voci</a>
+      <a href="materiali.html">Materiali</a>
+      <a href="calendario.html">Calendario</a>
+    </nav>
+    <div class="countdown">
+      <span class="days" data-countdown>—</span>
+      <span class="label">giorni<br>a Taranto</span>
+    </div>
   </div>
 </header>
 
-<main class="container">
+<main class="reading">
 
   <div class="overline">Manifesto · seconda bozza · 15 aprile 2026</div>
   <h1>Il dovere di cura</h1>
@@ -79,16 +69,15 @@
 
   <div class="closing">Ci ricostituiamo.</div>
 
-  <p style="margin-top:60px;"><a class="back" href="index.html">← Torna al coordinamento</a></p>
-
 </main>
 
 <footer class="site">
-  <div class="container">
-    <div>La Cura · manifesto · seconda bozza</div>
-    <div>Documento in lavorazione</div>
+  <div class="container-wide">
+    <div>Una Cura · manifesto · seconda bozza del 15 aprile 2026</div>
+    <div class="sigillo">UC · MMXXVI · Taranto</div>
   </div>
 </footer>
 
+<script src="js/app.js"></script>
 </body>
 </html>
