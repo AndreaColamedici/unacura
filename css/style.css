@@ -1633,3 +1633,118 @@ body {
   .indice-voce .pag { grid-column: 2; padding-top: 4px; }
   .pullquote.monumentale::before { font-size: 110px; opacity: 0.1; }
 }
+
+/* ============================================================
+   Raffinamenti editoriali italiani
+   - Iniziale capitale della soglia (drop cap più marcato)
+   - Filetto aldino (Manutius) più presente
+   - Virgolette caporali italiane nel pullquote
+   - Piccole capitali Garamond per le intestazioni di sezione
+   - Micro-animazione sul titolo del manifesto
+   ============================================================ */
+
+/* Soglia — drop cap italiano elegante */
+.soglia > p:first-of-type::first-letter {
+  font-family: 'EB Garamond', serif;
+  font-size: 96px;
+  font-weight: 500;
+  float: left;
+  line-height: 0.85;
+  color: var(--accent);
+  padding: 6px 14px 0 0;
+  font-style: normal;
+}
+
+/* Virgolette caporali all'italiana per il pullquote monumentale */
+.pullquote.monumentale::before {
+  content: '«';
+  font-size: 220px;
+  top: -30px;
+  left: 6px;
+  opacity: 0.08;
+}
+
+/* Piccole capitali per gli eyebrow */
+.section-head .eyebrow,
+.overline {
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.14em;
+}
+
+/* Filetto aldino — tre asterischi tipografici sobri */
+.asterismo {
+  display: block;
+  text-align: center;
+  font-family: 'EB Garamond', serif;
+  font-size: 20px;
+  letter-spacing: 1.2em;
+  color: var(--accent);
+  opacity: 0.55;
+  margin: 48px auto 24px;
+  line-height: 1;
+  padding-left: 1.2em;
+  user-select: none;
+}
+
+/* Raffinamento tabella voci — più respiro e nobiltà tipografica */
+.voci-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 12px;
+  font-family: 'EB Garamond', serif;
+}
+.voci-table thead th {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 14px 16px;
+  border-bottom: 1.5px solid var(--ink);
+  text-align: left;
+  vertical-align: bottom;
+}
+.voci-table tbody td {
+  padding: 22px 16px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.voci-table tbody tr:hover {
+  background: rgba(122,31,31,0.018);
+}
+.voci-table .voce-nome {
+  font-weight: 500;
+  font-size: 17px;
+  color: var(--ink);
+  font-family: 'EB Garamond', serif;
+  letter-spacing: 0.003em;
+  margin-bottom: 4px;
+}
+.voci-table .voce-ruolo {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+  font-style: italic;
+}
+.voci-table strong {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 2px;
+}
+
+/* Cover — micro-respiro sulla C iniziale */
+.cover.grande h1 em {
+  background: linear-gradient(180deg, transparent 62%, rgba(122,31,31,0.08) 62%, rgba(122,31,31,0.08) 88%, transparent 88%);
+}
+
+/* Rifiniture indice — didascalia con italico più presente */
+.indice-voce .didascalia em {
+  color: var(--accent);
+  font-weight: 500;
+}
